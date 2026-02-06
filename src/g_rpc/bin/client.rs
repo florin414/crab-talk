@@ -1,4 +1,4 @@
-use crab_talk::g_rpc::user::{
+use crab_talk::user::{
     user_service_client::UserServiceClient,
     UserRequest,
     UserResponse,

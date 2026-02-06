@@ -1,6 +1,6 @@
 use tonic::{transport::Server};
-use crab_talk::g_rpc::user::user_service_server::{UserServiceServer};
-use crab_talk::g_rpc::user_service::{CrabTalkUserService};
+use crab_talk::user::user_service_server::{UserServiceServer};
+use crab_talk::g_rpc::user_service::CrabTalkUserService;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
