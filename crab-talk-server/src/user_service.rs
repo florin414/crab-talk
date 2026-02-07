@@ -15,15 +15,20 @@ impl UserService for CrabTalkUserService {
         &self,
         request: Request<UserRequest>,
     ) -> Result<Response<UserResponse>, Status> {
+        let span = tracing::info_span!("grpc_request", grpc.method = "GetUser", user_id = %request.get_ref().user_id);
+        let _enter = span.enter();
+
+        tracing::info!("Handling GetUser request");
+
         let user_id = request.into_inner().user_id;
 
-        let reply = UserResponse {
+        let response = UserResponse {
             user_id,
             name: "user1".into(),
             email: "user1@exemple.com".into(),
         };
 
-        Ok(Response::new(reply))
+        Ok(Response::new(response))
     }
 }
 
