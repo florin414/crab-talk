@@ -1,0 +1,11 @@
+[package]
+name = "crab-talk-client"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+crab-talk-proto = { path = "../crab-talk-proto" }
+tokio = { version = "1.49.0", features = ["full"] }
+tonic = "0.14.3"
+
+

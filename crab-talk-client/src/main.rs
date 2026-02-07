@@ -1,9 +1,11 @@
-use crab_talk::user::{
+use crab_talk_proto::user::{
     user_service_client::UserServiceClient,
     UserRequest,
     UserResponse,
 };
+
 pub struct WrappedUserResponse(pub UserResponse);
+
 impl std::fmt::Debug for WrappedUserResponse {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("WrappedUserResponse")
@@ -16,8 +18,7 @@ impl std::fmt::Debug for WrappedUserResponse {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut client =
-        UserServiceClient::connect("http://[::1]:50051").await?;
+    let mut client = UserServiceClient::connect("http://[::1]:50051").await?;
 
     let request = tonic::Request::new(UserRequest { user_id: 42 });
 
@@ -29,3 +30,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     Ok(())
 }
+

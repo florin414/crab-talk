@@ -1,3 +1,0 @@
-cargo build --bins
-
-cargo run --bin server

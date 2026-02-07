@@ -1,0 +1,12 @@
+[package]
+name = "crab-talk-proto"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+prost = "0.14.3"
+tonic = "0.14.3"
+tonic-prost = "0.14.3"
+
+[build-dependencies]
+tonic-prost-build = "0.14.3"

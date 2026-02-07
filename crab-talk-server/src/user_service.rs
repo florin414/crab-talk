@@ -1,6 +1,6 @@
 use tonic::{Request, Response, Status};
 
-use crate::g_rpc::user::{
+use crab_talk_proto::user::{
     user_service_server::UserService,
     UserRequest,
     UserResponse,
@@ -11,7 +11,7 @@ pub struct CrabTalkUserService;
 
 #[tonic::async_trait]
 impl UserService for CrabTalkUserService {
-    async fn get_user (
+    async fn get_user(
         &self,
         request: Request<UserRequest>,
     ) -> Result<Response<UserResponse>, Status> {
@@ -26,3 +26,4 @@ impl UserService for CrabTalkUserService {
         Ok(Response::new(reply))
     }
 }
+
